@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </head>
   <body>
+    <!-- Load CMS from CDN -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <!-- Wait for CMS to load before calling init -->
     <script>
-      CMS.init({ config: '/admin/config.yml' });
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.CMS) {
+          window.CMS.init({ config: '/admin/config.yml' });
+        }
+      });
     </script>
   </body>
 </html>
