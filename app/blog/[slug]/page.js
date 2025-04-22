@@ -12,6 +12,7 @@ export async function generateStaticParams() {
   }));
 }
 
+
 export default async function BlogPost({ params }) {
   const { slug } = params;
   const filePath = path.join(process.cwd(), 'content', 'posts', `${slug}.md`);
