@@ -12,7 +12,10 @@
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         if (window.CMS) {
-          window.CMS.init();
+          console.log("Netlify CMS is ready!");
+          window.CMS.init({ config: '/admin/config.yml' });
+        } else {
+          console.error("Netlify CMS failed to initialize.");
         }
       });
     </script>
